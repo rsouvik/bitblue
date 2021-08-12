@@ -85,6 +85,14 @@ bool check_signed_hash(const struct sha256_double *hash,
 		       const secp256k1_ecdsa_signature *signature,
 		       const struct pubkey *key);
 
+void sign_tx_input_2(const struct bitcoin_tx *tx,
+		   unsigned int in,
+		   const u8 *subscript,
+		   const u8 *witness,
+		   const struct privkey *privkey, const struct pubkey *pubkey,
+		   enum sighash_type sighash_type,
+		   struct bitcoin_signature *sig);
+
 /**
  * sign_tx_input - produce a bitcoin signature for a transaction input
  * @tx: the bitcoin transaction we're signing.
